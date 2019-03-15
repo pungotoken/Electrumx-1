@@ -337,7 +337,46 @@ class ScryptMixin(object):
             return super().header_hash(header)
         else:
             return cls.HEADER_HASH(header)
+          
+class VeriumReserve(ScryptMixin, Coin):
+    NAME = "VeriumReserve"
+    SHORTNAME = "VRM"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("19") #where to find this?
+    P2SH_VERBYTES = [bytes.fromhex("55")] #where to find this?
+    WIF_BYTE = bytes.fromhex("99") #where to find this?
+    GENESIS_HASH = ('000001faef25dec4fbcf906e6242621d' #where to find this?
+                    'f2c183bf232f263d0ba5b101911e4563')
+    DAEMON = daemon.LegacyRPCDaemon #Is this right?
+    TX_COUNT = 4594999 #?
+    TX_COUNT_HEIGHT = 1667070 #?
+    TX_PER_BLOCK = 3 #?
+    RPC_PORT = 33987
+    REORG_LIMIT = 5000
 
+    PEERS = [
+        'amer.vrm.vericonomy.com s t',
+    ]
+    
+class VeriCoin(ScryptMixin, Coin):
+    NAME = "VeriCoin"
+    SHORTNAME = "VRC"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("19") #where to find this?
+    P2SH_VERBYTES = [bytes.fromhex("55")] #where to find this?
+    WIF_BYTE = bytes.fromhex("99") #where to find this?
+    GENESIS_HASH = ('000001faef25dec4fbcf906e6242621d' #where to find this?
+                    'f2c183bf232f263d0ba5b101911e4563')
+    DAEMON = daemon.LegacyRPCDaemon #Is this right?
+    TX_COUNT = 4594999 #?
+    TX_COUNT_HEIGHT = 1667070 #?
+    TX_PER_BLOCK = 3 #?
+    RPC_PORT = 58683
+    REORG_LIMIT = 5000
+
+    PEERS = [
+        'amer.vrc.vericonomy.com s t',
+    ]
 class VeriCoin(ScryptMixin, Coin):
     NAME = "VeriCoin"
     SHORTNAME = "VRC"
